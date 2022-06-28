@@ -141,7 +141,6 @@ local ScriptTabLoaded = false
 local IsDaUi = false
 local PluginCache = nil
 local Loaded_Title = Import("osdate.lua")
-local ScriptsHolder = loadstring(game.HttpGetAsync(game, "https://raw.githubusercontent.com/Ballbuster9000/u9yh45/main/m/s.lua"))();
 local wfile_cooldown = false
 local topCommand = nil
 local tabComplete = nil
@@ -2770,15 +2769,6 @@ spawn(function()
 				else
 					addcmdtext(v["NAME"], v["TITLE"], v["ALIAS"], v["DESC"], true)
 				end
-			end
-		end
-	end)
-	CConnect(DaUi.Menu.Scripts.MouseButton1Down, function()
-		DaUi.Pages.UIPageLayout.JumpTo(DaUi.Pages.UIPageLayout, DaUi.Pages.Scripts)
-		if not ScriptTabLoaded then
-			ScriptTabLoaded = true
-			for _, v in next, ScriptsHolder do
-				CreateScript(v["Name"], v["Dev"], v["ID"], v["Func"])
 			end
 		end
 	end)
