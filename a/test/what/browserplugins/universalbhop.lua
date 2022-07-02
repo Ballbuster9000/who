@@ -116,6 +116,11 @@ local Plugin = {
 				else
 					BHOP.Start()
 				end
+				con = speaker.CharacterAdded:Connect(function()
+				if BunnyHop == "Loaded" then
+				BHOP.Start()
+				end
+				end)
 			end,
 		},
 		["unbhop"] = {
@@ -125,6 +130,7 @@ local Plugin = {
 			["Function"] = function(args, speaker)
 				if BunnyHop == "Waiting" then return end
 				BHOP.Stop()
+				con = con:Disconnect()
 			end,
 		},
 		["currentvel"] = {
